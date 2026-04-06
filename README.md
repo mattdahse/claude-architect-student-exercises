@@ -7,8 +7,8 @@ Starter code, reference solutions, and validation scripts for the Claude Certifi
 Clone this repository once. You'll use it throughout the course.
 
 ```bash
-git clone https://github.com/YOUR-ORG/claude-architect-exercises.git
-cd claude-architect-exercises
+git clone https://github.com/mattdahse/claude-architect-student-exercises.git
+cd claude-architect-student-exercises
 ```
 
 Each exercise lives in its own directory under `exercises/`. When a lesson tells you to start an exercise, navigate to that directory and follow the instructions.
