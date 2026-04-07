@@ -23,35 +23,41 @@ async function runAgent(userMessage) {
   // It starts with the user's initial message.
   const messages = [{ role: 'user', content: userMessage }];
 
-  // TODO Step 3: Send the first request to Claude.
-  // Use client.messages.create() with:
-  //   - model: 'claude-sonnet-4-20250514'
-  //   - max_tokens: 1024
-  //   - tools: toolDefinitions
-  //   - messages: messages
-  // Store the result in a variable called `response`.
+  // TODO Step 3: Send the first request to Claude and print the response.
+  //
+  // 1. Call client.messages.create() with model, max_tokens, tools, messages.
+  //    Store the result in a variable: let response = await client.messages.create(...)
+  //
+  // 2. Log the stop_reason: console.log(`[Loop] stop_reason: ${response.stop_reason}`)
+  //
+  // 3. Loop through response.content and print each block:
+  //    - If block.type === 'text', print: [Text] followed by the text
+  //    - If block.type === 'tool_use', print: [Tool Request] followed by the name and input
 
   console.log('TODO: Complete Step 3 — send the first request to Claude.');
   return;
 
-  // TODO Step 4: Handle tool_use.
-  // Check if response.stop_reason is 'tool_use'.
-  // If it is:
-  //   1. Loop through response.content to find blocks where type === 'tool_use'
-  //   2. For each tool_use block, call executeTool(block.name, block.input)
-  //   3. Build a tool_result object for each: { type: 'tool_result', tool_use_id: block.id, content: JSON.stringify(result) }
-  //   4. Print the tool name and result so you can see what happened
+  // TODO Step 4: Execute the tool calls.
+  //
+  // After printing the response, add code to actually execute the tools:
+  //   1. Create an empty array: const toolResults = []
+  //   2. Loop through response.content again
+  //   3. For each tool_use block, call executeTool(block.name, block.input)
+  //   4. Log the result: [Tool Result] followed by the JSON
+  //   5. Push a tool_result object to the array:
+  //      { type: 'tool_result', tool_use_id: block.id, content: JSON.stringify(result) }
 
   // TODO Step 5: Close the loop.
-  // Wrap the request + tool handling in a while loop:
+  //
+  // Wrap the request + response printing + tool execution in a while loop:
   //   while (response.stop_reason === 'tool_use') {
   //     1. Append Claude's response to messages: { role: 'assistant', content: response.content }
   //     2. Append tool results to messages: { role: 'user', content: toolResults }
   //     3. Send a new request with the updated messages
+  //     4. Print the new response (same logging as Step 3)
   //   }
-
-  // Once the loop exits (stop_reason is 'end_turn'), extract and print the final text response.
-  // The final text is in the last text block of response.content:
+  //
+  // After the loop exits, extract and print the final text response:
   //   const finalText = response.content.filter(b => b.type === 'text').map(b => b.text).join('\n');
   //   console.log(`\nAssistant: ${finalText}`);
 }
