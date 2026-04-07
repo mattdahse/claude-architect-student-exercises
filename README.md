@@ -18,6 +18,7 @@ Each exercise lives in its own directory under `exercises/`. When a lesson tells
 | Exercise | Lesson | Title | Format |
 |----------|--------|-------|--------|
 | 1.2 | Module 1, Lesson 2 | Implementing Your First Agentic Loop | Practical exercise |
+| 1.7 | Module 1, Lesson 7 | Parallel vs Sequential Subagent Execution | Practical exercise |
 
 *More exercises are added as new modules are released.*
 

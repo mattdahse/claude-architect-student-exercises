@@ -1,0 +1,15 @@
+{
+  "name": "parallel-sequential-execution",
+  "version": "1.0.0",
+  "description": "Exercise 1.7: Parallel vs Sequential Subagent Execution",
+  "main": "coordinator.js",
+  "scripts": {
+    "start": "node coordinator.js",
+    "sequential": "node coordinator.js sequential",
+    "parallel": "node coordinator.js parallel"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.39.0",
+    "dotenv": "^16.4.7"
+  }
+}
