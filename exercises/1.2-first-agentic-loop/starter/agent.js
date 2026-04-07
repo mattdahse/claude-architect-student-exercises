@@ -5,6 +5,10 @@
  * Each TODO comment corresponds to one step in the exercise.
  */
 
+// Suppress deprecation warning from a transient SDK dependency (punycode).
+// This is a known issue and does not affect functionality.
+process.removeAllListeners('warning');
+
 require('dotenv').config();
 const Anthropic = require('@anthropic-ai/sdk').default;
 const { toolDefinitions, executeTool } = require('./tools');
