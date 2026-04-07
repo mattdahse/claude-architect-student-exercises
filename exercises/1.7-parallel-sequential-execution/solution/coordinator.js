@@ -2,16 +2,43 @@
  * coordinator.js — Reference solution for Exercise 1.7.
  *
  * Demonstrates both sequential and parallel subagent execution patterns.
+ * Supports both mock subagents (default) and real API calls (--real flag).
+ *
+ * Usage:
+ *   node coordinator.js sequential          # Mock subagents, sequential
+ *   node coordinator.js parallel            # Mock subagents, parallel
+ *   node coordinator.js both                # Mock subagents, both (default)
+ *   node coordinator.js sequential --real   # Real API calls, sequential
+ *   node coordinator.js parallel --real     # Real API calls, parallel
+ *   node coordinator.js both --real         # Real API calls, both
+ *
  * See README.md for design decisions and alternatives.
  */
 
 process.removeAllListeners('warning');
 
-const { researchMarket, analyzeTrends, writeReport } = require('../starter/subagents');
+// Select subagent implementation based on --real flag.
+// Mock subagents use simulated delays (no API key needed).
+// Real subagents make actual Claude API calls (requires .env with API key).
+const useReal = process.argv.includes('--real');
+
+const subagents = useReal
+  ? require('./subagents')           // Real API calls (Step 6)
+  : require('../starter/subagents'); // Mock delays (Steps 3-5)
+
+const { researchMarket, analyzeTrends, writeReport } = subagents;
+
+if (useReal) {
+  console.log('[Mode] Using REAL API calls — this will use API credits.\n');
+} else {
+  console.log('[Mode] Using mock subagents with simulated delays.\n');
+}
 
 /**
  * Sequential execution: all three subagents run one after another.
- * Total time ≈ sum of all individual times (~5 seconds with mock delays).
+ * Total time ≈ sum of all individual times.
+ *   Mock: ~5 seconds (2s + 2s + 1s)
+ *   Real: depends on API latency (typically 3-8s per call)
  */
 async function runSequential(topic) {
   console.log(`\n--- Sequential Execution ---`);
@@ -19,8 +46,6 @@ async function runSequential(topic) {
 
   const start = Date.now();
 
-  // Step 3: Each await blocks until the previous completes.
-  // Total time = 2s (market) + 2s (trends) + 1s (report) = ~5s
   const marketResult = await researchMarket(topic);
   const trendResult = await analyzeTrends(topic);
   const report = await writeReport(marketResult, trendResult);
@@ -32,7 +57,9 @@ async function runSequential(topic) {
 
 /**
  * Parallel execution: independent subagents run concurrently.
- * Total time ≈ max(independent tasks) + sequential dependency (~3 seconds).
+ * Total time ≈ max(independent tasks) + sequential dependency.
+ *   Mock: ~3 seconds (max(2s, 2s) + 1s)
+ *   Real: depends on API latency (but always faster than sequential)
  *
  * We use Promise.all() here because BOTH results are required for the report.
  * If either fails, Promise.all() rejects immediately — which is correct,
@@ -47,16 +74,14 @@ async function runParallel(topic) {
 
   const start = Date.now();
 
-  // Step 5: Market research and trend analysis are independent —
+  // Market research and trend analysis are independent —
   // neither needs the other's output. Run them concurrently.
-  // Total time for this step = max(2s, 2s) = ~2s (not 2s + 2s = 4s)
   const [marketResult, trendResult] = await Promise.all([
     researchMarket(topic),
     analyzeTrends(topic),
   ]);
 
   // Report writing depends on both results, so it must wait.
-  // This runs after both parallel tasks complete.
   const report = await writeReport(marketResult, trendResult);
 
   const elapsed = ((Date.now() - start) / 1000).toFixed(1);
@@ -65,7 +90,9 @@ async function runParallel(topic) {
 }
 
 async function main() {
-  const mode = process.argv[2] || 'both';
+  // Parse mode from args (ignore --real flag)
+  const args = process.argv.slice(2).filter(a => a !== '--real');
+  const mode = args[0] || 'both';
   const topic = 'cloud database services';
 
   if (mode === 'sequential' || mode === 'both') {

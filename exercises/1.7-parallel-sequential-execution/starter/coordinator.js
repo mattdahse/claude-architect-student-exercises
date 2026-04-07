@@ -33,11 +33,6 @@ async function runSequential(topic) {
 
   console.log('TODO: Complete Step 3 — implement sequential execution.');
   return null;
-
-  // After implementing, uncomment:
-  // const elapsed = ((Date.now() - start) / 1000).toFixed(1);
-  // console.log(`\n--- Sequential Total: ${elapsed}s ---`);
-  // return report;
 }
 
 /**
@@ -61,11 +56,6 @@ async function runParallel(topic) {
 
   console.log('TODO: Complete Step 5 — implement parallel execution.');
   return null;
-
-  // After implementing, uncomment:
-  // const elapsed = ((Date.now() - start) / 1000).toFixed(1);
-  // console.log(`\n--- Parallel Total: ${elapsed}s ---`);
-  // return report;
 }
 
 // Main entry point
