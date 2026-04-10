@@ -1,0 +1,14 @@
+{
+  "name": "schema-design-patterns",
+  "version": "1.0.0",
+  "description": "Exercise 4.5: Schema Design Patterns",
+  "main": "extractor.js",
+  "scripts": {
+    "test:basic": "node extractor.js basic",
+    "test:improved": "node extractor.js improved"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.39.0",
+    "dotenv": "^16.4.7"
+  }
+}

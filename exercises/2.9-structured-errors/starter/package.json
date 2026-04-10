@@ -1,0 +1,10 @@
+{
+  "name": "structured-errors-exercise",
+  "version": "1.0.0",
+  "description": "Exercise 2.9: Implementing Structured Error Responses",
+  "main": "coordinator.js",
+  "scripts": {
+    "start": "node coordinator.js"
+  },
+  "dependencies": {}
+}

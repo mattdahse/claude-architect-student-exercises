@@ -1,0 +1,14 @@
+{
+  "name": "capstone-support-agent",
+  "version": "1.0.0",
+  "description": "Capstone Project A: Multi-Tool Customer Support Agent",
+  "main": "agent.js",
+  "scripts": {
+    "start": "node agent.js",
+    "validate": "node ../validation/validate.js"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.39.0",
+    "dotenv": "^16.4.7"
+  }
+}

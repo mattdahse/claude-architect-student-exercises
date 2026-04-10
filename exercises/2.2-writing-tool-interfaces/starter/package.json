@@ -1,0 +1,14 @@
+{
+  "name": "writing-tool-interfaces",
+  "version": "1.0.0",
+  "description": "Exercise 2.2: Writing Effective Tool Interfaces",
+  "main": "tester.js",
+  "scripts": {
+    "test:poor": "node tester.js tools-poor.js",
+    "test:improved": "node tester.js tools-improved.js"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.39.0",
+    "dotenv": "^16.4.7"
+  }
+}

@@ -19,6 +19,12 @@ Each exercise lives in its own directory under `exercises/`. When a lesson tells
 |----------|--------|-------|--------|
 | 1.2 | Module 1, Lesson 2 | Implementing Your First Agentic Loop | Practical exercise |
 | 1.7 | Module 1, Lesson 7 | Parallel vs Sequential Subagent Execution | Practical exercise |
+| 2.2 | Module 2, Lesson 2 | Writing Effective Tool Interfaces | Practical exercise |
+| 1.12 | Module 1, Lesson 12 | Implementing Workflow Enforcement | Practical exercise |
+| 2.9 | Module 2, Lesson 9 | Implementing Structured Error Responses | Practical exercise |
+| 4.3 | Module 4, Lesson 3 | Writing Few-Shot Examples | Practical exercise |
+| 4.5 | Module 4, Lesson 5 | Schema Design Patterns | Practical exercise |
+| 6.1 | Module 6, Project A | Multi-Tool Customer Support Agent | Capstone project |
 
 *More exercises are added as new modules are released.*
 

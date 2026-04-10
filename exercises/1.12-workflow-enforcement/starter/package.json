@@ -1,0 +1,10 @@
+{
+  "name": "workflow-enforcement-exercise",
+  "version": "1.0.0",
+  "description": "Exercise 1.12: Implementing Workflow Enforcement",
+  "main": "coordinator.js",
+  "scripts": {
+    "start": "node coordinator.js"
+  },
+  "dependencies": {}
+}
