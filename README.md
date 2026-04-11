@@ -25,6 +25,8 @@ Each exercise lives in its own directory under `exercises/`. When a lesson tells
 | 4.3 | Module 4, Lesson 3 | Writing Few-Shot Examples | Practical exercise |
 | 4.5 | Module 4, Lesson 5 | Schema Design Patterns | Practical exercise |
 | 6.1 | Module 6, Project A | Multi-Tool Customer Support Agent | Capstone project |
+| 6.2 | Module 6, Project B | Claude Code Team Configuration | Capstone project |
+| 6.3 | Module 6, Project C | Structured Data Extraction Pipeline | Capstone project |
 
 *More exercises are added as new modules are released.*
 

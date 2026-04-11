@@ -1,0 +1,16 @@
+{
+  "mcpServers": {
+    "filesystem": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@anthropic-ai/mcp-filesystem",
+        "$PROJECT_DIR/src",
+        "$PROJECT_DIR/tests"
+      ],
+      "env": {
+        "PROJECT_DIR": "."
+      }
+    }
+  }
+}
