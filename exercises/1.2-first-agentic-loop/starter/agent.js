@@ -9,7 +9,7 @@
 // This is a known issue and does not affect functionality.
 process.removeAllListeners('warning');
 
-require('dotenv').config();
+require('../../../shared/load-env');
 const Anthropic = require('@anthropic-ai/sdk').default;
 const { toolDefinitions, executeTool } = require('./tools');
 

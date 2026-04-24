@@ -1,36 +1,21 @@
 # Exercise 1.7: Parallel vs Sequential Subagent Execution
 
-## Setup
+## Prerequisites
 
-1. Navigate to this exercise's starter directory:
+Complete the one-time repo setup at the root (`npm install` + `.env`). See the top-level `README.md`. The mock starter doesn't make API calls, but the Step 6 "real API" path does — the root `.env` is what it uses.
 
-   ```bash
-   cd claude-architect-student-exercises/exercises/1.7-parallel-sequential-execution/starter/
-   ```
+## Running
 
-2. Install dependencies:
+```bash
+node coordinator.js              # Defaults to sequential
+node coordinator.js sequential   # Run subagents one after another
+node coordinator.js parallel     # Run independent subagents concurrently
+```
 
-   ```bash
-   npm install
-   ```
-
-3. Verify the starter runs:
-
-   ```bash
-   node coordinator.js
-   ```
-
-   You should see a TODO message. Follow the steps in the course lesson to complete the exercise.
+You should see a TODO message first run. Follow the steps in the course lesson to complete the exercise.
 
 ## Files
 
 - `coordinator.js` — The main file you'll edit. Contains TODO stubs for sequential and parallel execution.
 - `subagents.js` — Three mock subagent functions with simulated delays. Provided complete — don't modify this.
-- `package.json` — Dependencies.
-
-## Running
-
-```bash
-node coordinator.js sequential   # Run subagents one after another
-node coordinator.js parallel     # Run independent subagents concurrently
-```
+- `package.json` — Exercise metadata and scripts (no local deps; they live at the repo root).

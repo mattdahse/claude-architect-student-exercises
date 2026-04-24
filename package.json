@@ -1,0 +1,10 @@
+{
+  "name": "claude-architect-student-exercises",
+  "version": "1.0.0",
+  "description": "Starter code, reference solutions, and validation scripts for the Claude Certified Architect Foundations course.",
+  "private": true,
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.39.0",
+    "dotenv": "^16.4.7"
+  }
+}

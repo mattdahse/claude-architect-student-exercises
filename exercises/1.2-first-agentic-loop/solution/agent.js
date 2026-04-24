@@ -7,7 +7,7 @@
 
 process.removeAllListeners('warning');
 
-require('dotenv').config({ path: require('path').resolve(__dirname, '../starter/.env') });
+require('../../../shared/load-env');
 const Anthropic = require('@anthropic-ai/sdk').default;
 const { toolDefinitions, executeTool } = require('../starter/tools');
 

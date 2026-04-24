@@ -11,7 +11,7 @@
  * Requires a .env file with your ANTHROPIC_API_KEY in the starter/ directory.
  */
 
-require('dotenv').config({ path: require('path').resolve(__dirname, '../starter/.env') });
+require('../../../shared/load-env');
 const Anthropic = require('@anthropic-ai/sdk').default;
 
 const client = new Anthropic();

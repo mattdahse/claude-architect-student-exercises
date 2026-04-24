@@ -6,9 +6,5 @@
   "scripts": {
     "test:baseline": "node tester.js baseline",
     "test:fewshot": "node tester.js few-shot"
-  },
-  "dependencies": {
-    "@anthropic-ai/sdk": "^0.39.0",
-    "dotenv": "^16.4.7"
   }
 }

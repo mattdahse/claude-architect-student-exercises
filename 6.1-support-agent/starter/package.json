@@ -6,9 +6,5 @@
   "scripts": {
     "start": "node agent.js",
     "validate": "node ../validation/validate.js"
-  },
-  "dependencies": {
-    "@anthropic-ai/sdk": "^0.39.0",
-    "dotenv": "^16.4.7"
   }
 }

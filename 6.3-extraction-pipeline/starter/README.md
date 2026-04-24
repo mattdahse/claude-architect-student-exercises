@@ -2,13 +2,9 @@
 
 Build a production-grade extraction pipeline that handles messy, inconsistent insurance claim documents using Claude's tool use for structured output.
 
-## Setup
+## Prerequisites
 
-```bash
-cp .env.example .env
-# Add your Anthropic API key to .env
-npm install
-```
+Complete the one-time repo setup at the root (`npm install` + `.env`). See the top-level `README.md`.
 
 ## File Overview
 

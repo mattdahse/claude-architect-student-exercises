@@ -6,7 +6,7 @@
  */
 
 process.removeAllListeners('warning');
-require('dotenv').config();
+require('../../../shared/load-env');
 const Anthropic = require('@anthropic-ai/sdk').default;
 
 const client = new Anthropic();

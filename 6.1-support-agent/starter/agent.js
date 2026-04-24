@@ -2,7 +2,7 @@
 // Students: Implement the agentic loop in this file.
 process.removeAllListeners("warning");
 
-require("dotenv").config();
+require("../../shared/load-env");
 const Anthropic = require("@anthropic-ai/sdk");
 const { ALL_TOOLS, executeTool } = require("./tools");
 const { preToolUse } = require("./hooks");

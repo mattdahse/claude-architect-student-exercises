@@ -7,9 +7,5 @@
     "extract": "node extractor.js",
     "extract:all": "node extractor.js --all",
     "validate": "node -e \"const {documents} = require('./documents'); const {extractionTool} = require('./schema'); console.log('Documents loaded:', documents.length); console.log('Schema fields:', Object.keys(extractionTool.input_schema.properties).join(', ')); console.log('Setup OK');\""
-  },
-  "dependencies": {
-    "@anthropic-ai/sdk": "^0.39.0",
-    "dotenv": "^16.4.7"
   }
 }

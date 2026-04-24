@@ -1,7 +1,7 @@
 // Capstone Project A: Multi-Tool Customer Support Agent — SOLUTION
 process.removeAllListeners("warning");
 
-require("dotenv").config();
+require("../../shared/load-env");
 const Anthropic = require("@anthropic-ai/sdk");
 const { ALL_TOOLS, executeTool } = require("../starter/tools");
 const { preToolUse } = require("./hooks");

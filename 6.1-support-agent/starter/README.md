@@ -2,13 +2,9 @@
 
 Build a complete customer support agent with an agentic loop, structured error handling, a business rule hook, escalation logic, and context management.
 
-## Setup
+## Prerequisites
 
-```bash
-npm install
-cp .env.example .env
-# Add your ANTHROPIC_API_KEY to .env
-```
+Complete the one-time repo setup at the root (`npm install` + `.env`). See the top-level `README.md`.
 
 ## Project Structure
 

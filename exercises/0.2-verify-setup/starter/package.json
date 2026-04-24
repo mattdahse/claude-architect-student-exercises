@@ -1,0 +1,9 @@
+{
+  "name": "verify-setup",
+  "version": "1.0.0",
+  "description": "Exercise 0.2: Verify Your Setup",
+  "main": "verify.js",
+  "scripts": {
+    "start": "node verify.js"
+  }
+}

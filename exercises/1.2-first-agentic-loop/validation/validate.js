@@ -18,7 +18,7 @@
  *   node validate.js --solution
  */
 
-require('dotenv').config({ path: require('path').resolve(__dirname, '../starter/.env') });
+require('../../../shared/load-env');
 const path = require('path');
 
 const useSolution = process.argv.includes('--solution');

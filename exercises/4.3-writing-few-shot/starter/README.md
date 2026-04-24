@@ -1,13 +1,8 @@
 # Exercise 4.3: Writing Few-Shot Examples
 
-## Setup
+## Prerequisites
 
-```bash
-cd claude-architect-student-exercises/exercises/4.3-writing-few-shot/starter/
-npm install
-cp .env.example .env
-# Edit .env and add your API key
-```
+Complete the one-time repo setup at the root (`npm install` + `.env`). See the top-level `README.md`.
 
 ## Running
 

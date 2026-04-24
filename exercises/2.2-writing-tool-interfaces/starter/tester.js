@@ -12,7 +12,7 @@
  */
 
 process.removeAllListeners('warning');
-require('dotenv').config();
+require('../../../shared/load-env');
 const Anthropic = require('@anthropic-ai/sdk').default;
 const { testPrompts } = require('./test-prompts');
 

@@ -2,21 +2,26 @@
 
 Starter code, reference solutions, and validation scripts for the Claude Certified Architect Foundations preparation course.
 
-## Setup
+## One-Time Setup
 
-Clone this repository once. You'll use it throughout the course.
+You do this **once** for the whole course. Every exercise reads your API key from a single `.env` at the repo root.
 
 ```bash
 git clone https://github.com/mattdahse/claude-architect-student-exercises.git
 cd claude-architect-student-exercises
+
+npm install                 # installs @anthropic-ai/sdk + dotenv at the repo root
+cp .env.example .env        # creates .env (gitignored)
+# then edit .env and paste your Anthropic API key after ANTHROPIC_API_KEY=
 ```
 
-Each exercise lives in its own directory under `exercises/`. When a lesson tells you to start an exercise, navigate to that directory and follow the instructions.
+That's it. You do not need to run `npm install` or create a `.env` inside individual exercises — they all load the root `.env` via `shared/load-env.js`.
 
 ## Exercise Index
 
 | Exercise | Lesson | Title | Format |
 |----------|--------|-------|--------|
+| 0.2 | Module 0, Lesson 2 | Verify Your Setup | Practical exercise |
 | 1.2 | Module 1, Lesson 2 | Implementing Your First Agentic Loop | Practical exercise |
 | 1.7 | Module 1, Lesson 7 | Parallel vs Sequential Subagent Execution | Practical exercise |
 | 2.2 | Module 2, Lesson 2 | Writing Effective Tool Interfaces | Practical exercise |
@@ -32,20 +37,27 @@ Each exercise lives in its own directory under `exercises/`. When a lesson tells
 
 ## Directory Structure
 
-Each exercise directory contains:
-
 ```
-exercises/X.Y-exercise-name/
-├── starter/          # Starting files — copy to your working directory or edit in place
-│   ├── README.md     # Setup instructions specific to this exercise
-│   ├── package.json  # Dependencies
-│   ├── .env.example  # API key template (copy to .env and add your key)
-│   └── ...           # Exercise-specific starter files
-├── solution/         # Reference implementation for self-checking
-│   ├── README.md     # Design decisions and alternative approaches
-│   └── ...           # Complete working code
-└── validation/       # Test scripts to verify your implementation
-    └── validate.js   # Automated checks
+claude-architect-student-exercises/
+├── .env                    # your API key (you create this, gitignored)
+├── .env.example            # template
+├── package.json            # shared deps (@anthropic-ai/sdk, dotenv)
+├── shared/
+│   └── load-env.js         # loads .env for every exercise
+├── exercises/
+│   └── X.Y-exercise-name/
+│       ├── starter/        # files you edit
+│       ├── solution/       # reference implementation
+│       └── validation/     # test script
+└── 6.1-support-agent/      # capstone projects (same layout)
+    ...
+```
+
+Starter files load the shared env with a single line:
+
+```js
+require('../../../shared/load-env');  // from exercises/X.Y-name/starter/
+require('../../shared/load-env');     // from capstone project starters
 ```
 
 ## How to Work on an Exercise
@@ -55,34 +67,22 @@ exercises/X.Y-exercise-name/
    cd exercises/1.2-first-agentic-loop/starter/
    ```
 
-2. Install dependencies:
-   ```bash
-   npm install
-   ```
+2. Follow the step-by-step instructions in the course lesson.
 
-3. Create your `.env` file with your API key:
-   ```bash
-   cp .env.example .env
-   # Edit .env and add your Anthropic API key
-   ```
-
-4. Follow the step-by-step instructions in the course lesson.
-
-5. When you're done, run the validation script:
+3. When you're done, run the validation script:
    ```bash
    node ../validation/validate.js
    ```
 
-6. Compare your implementation with the reference solution in `solution/` if needed.
+4. Compare your implementation with the reference solution in `solution/` if needed.
 
 ## API Key
 
-Each exercise that makes API calls needs your Anthropic API key. Store it in a `.env` file inside the exercise's `starter/` directory. The `.gitignore` is configured to exclude `.env` files so your key is never committed.
+Your Anthropic API key lives in a single `.env` at the repo root. The `.gitignore` excludes `.env` so your key is never committed. If you don't have an API key yet, follow the setup instructions in Module 0, Lesson 2 of the course.
 
-If you don't have an API key yet, follow the setup instructions in Module 0, Lesson 2 of the course.
+Do **not** also set `ANTHROPIC_API_KEY` as a shell environment variable — it conflicts with Claude Code's own authentication. The root `.env` is the right home for it.
 
 ## Requirements
 
 - Node.js v18 or higher
 - An Anthropic API key with credits ([console.anthropic.com](https://console.anthropic.com))
-# claude-architect-student-exercises

@@ -2,7 +2,7 @@
 // Tests 5 key scenarios to verify the student's implementation
 process.removeAllListeners("warning");
 
-require("dotenv").config({ path: "../starter/.env" });
+require("../../shared/load-env");
 
 const path = require("path");
 

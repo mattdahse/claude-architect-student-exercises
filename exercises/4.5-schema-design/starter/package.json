@@ -6,9 +6,5 @@
   "scripts": {
     "test:basic": "node extractor.js basic",
     "test:improved": "node extractor.js improved"
-  },
-  "dependencies": {
-    "@anthropic-ai/sdk": "^0.39.0",
-    "dotenv": "^16.4.7"
   }
 }
